@@ -30,23 +30,20 @@
 	
 	foreach($results as $result) { 
 		echo "
-			<div class='resultat'>
-				
-				<a href='".$result->getUrl()."'><h3>".$result->getTitle()."</h3></a>
-				<h6>".$result->getUrl()."</h6>
-				
-				<hr></hr>
-				
-				<div class='description'>
-					<h5>".$result->getDescription()."</h5>
-				</div>	
-				
-				<div class='keywords'>
-					 
+			<a href='".$result->getUrl()."'>
+				<div class='resultat'>	
+					<h3>".$result->getTitle()."</h3>
+					<h6>".$result->getUrl()."</h6>
+					
+					<div class='description'>
+						<p>".$result->getDescription()."</p>
+					</div>	
+					
+					<div class='keywords'>
+						 
+					</div>
 				</div>
-				
-			</div>
-			
+			</a>
 
 		";
 	}
