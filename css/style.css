@@ -13,7 +13,7 @@ html
 	background-color: #2D3449;
 	background: url('../images/wallpaper2.jpg');
 	background-attachment: fixed;
-	background-size: 1500px;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
