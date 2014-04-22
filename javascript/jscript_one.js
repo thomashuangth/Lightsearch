@@ -16,6 +16,14 @@ function getXMLHttpRequest() {
 
 function searchWebsite(){
 	var description = document.getElementById("searchbar").value;
+	if (!description)
+	{
+		document.getElementById("result").style.visibility="hidden";	
+	}
+	else
+	{
+		document.getElementById("result").style.visibility="visible";
+	}
 	var xmlhttp = getXMLHttpRequest();
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200)
@@ -25,14 +33,8 @@ function searchWebsite(){
 	}
 	xmlhttp.open("GET","listResult.php?description="+description,true);
 	xmlhttp.send();
-	if (description != null)
-	{
-		document.getElementById("result").style.visibility="visible";
-	}
-	else
-	{
-		document.getElementById("result").style.visibility="hidden";	
-	}
+	console.log(description);
+
 }
 
 
