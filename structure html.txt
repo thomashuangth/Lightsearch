@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+
+	</head>
+
+
+	<body>
+
+		<div id="header"></div>
+		
+		
+		<h1>Title</h1>
+
+
+		<div id="result">
+
+			<h3>Facebook</h3>
+		
+			<div class="description">
+				
+				<h5>Facebook is a social network</h5>
+				
+			</div>
+			
+			<div class="url">
+				
+				<a href="http://www.facebook.com" />  
+			
+			</div>
+
+		</div>
+
+		
+		<div id="footer">/div>
+
+	</body>
+
+
+</html>
