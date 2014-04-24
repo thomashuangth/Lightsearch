@@ -15,8 +15,10 @@ require 'required.php';
 			<h1>LightSearch</h1>
 		</header>
 		<div class="searchsection">
-			<input id="searchbar" name="search" type="text" placeholder="Recherche..." autocomplete="off" onkeyup="searchWebsite()">
-			<button onclick="searchWebsite()">Search</button>
+			<form action="resultat.php" method="GET">
+				<input id="searchbar" name="search" type="text" placeholder="Recherche..." autocomplete="off" onkeyup="searchWebsite()">
+				<button onclick="searchWebsite()">Search</button>
+			</form>
 			<ul id="result">
 			</ul>
 		</div>

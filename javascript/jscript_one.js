@@ -36,27 +36,6 @@ function searchWebsite(){
 	xmlhttp.send();
 }
 
-function leftArrowPressed() {
-	console.log("Left");
-}
-
-function rightArrowPressed() {
-	console.log("Right");
-}
-
-document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    switch (evt.keyCode) {
-        case 37:
-            leftArrowPressed();
-            break;
-        case 39:
-            rightArrowPressed();
-            break;
-    }
-};
-
-
 
 
 
