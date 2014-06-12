@@ -9,7 +9,7 @@ require 'required.php';
 		<script type="text/javascript" src="javascript/jscript_one.js"></script>
 		<link rel="icon" href="favicon.png" type="image/icon">
 	</head>
-	<body>
+	<body class="main">
 		<header>
 			<div class="logo"><img src="images/logo2.png" alt="LightSearch"></div>
 			<h1>LightSearch</h1>

@@ -6,10 +6,18 @@
 		<link rel="icon" href="favicon.png" type="image/icon">
 	</head>
 	<body>
-		<header class="resultatpage">
+		<div class="resultathead">
+			<div class="option">
+				Résultats par page :<br>
+				<select name="resultperpage">
+					<option value="10">10 par page</option>
+					<option value="20">20 par page</option>
+					<option value="30">30 par page</option>
+				</select>
+			</div>
 			<a href="index.php">
-				<div class="brand">
-					<div class="logo"><img src="images/logo2.png" alt="LightSearch"></div>
+				<div class="logo">
+					<img src="images/logo.png" alt="LightSearch">
 					<h3>LightSearch</h3>
 				</div>
 			</a>
@@ -21,7 +29,7 @@
 				<ul id="result">
 				</ul>
 			</div>
-		</header>
+		</div>
 		<div class="allresult">
 			<ul>
 				<li>

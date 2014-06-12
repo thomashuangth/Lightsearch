@@ -3,29 +3,23 @@
   src: url('../font/Intro.otf') format('opentype');
 }
 
-*
+body
 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
-html
+.main
 {
-	background-color: #2D3449;
 	background: url('../images/wallpaper2.jpg');
 	background-attachment: fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
-body
-{
-	margin: 50px auto;
-	width: 1000px;
-	padding: 20px;
-}
-
 header
 {
+	margin: 50px 0;
 	text-align: center;
 }
 
@@ -34,41 +28,71 @@ header
 	height: 150px;
 }
 
-.resultatpage
+.resultathead
 {
-	text-align: left;
-	height: 140px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px 0;
+	height: 50px;
+	width: 100%;
+	min-width: 1000px;
+	background: url('../images/wallpaper2.jpg');
 }
 
-.resultatpage > a > .brand
+.resultathead > a
 {
-	float: left;
+	position: absolute;
+	text-decoration: none;
 }
 
-.resultatpage > a > .brand > .logo
+.resultathead > a > .logo
 {
-
+	width: 200px;
+	height: 50px;
+	margin-left: 30px;
 }
 
-.resultatpage > a > .brand > .logo > img
+.resultathead > a > .logo > img
 {
-	height: 100px;
+	vertical-align: middle;
+	height: 50px;
+	margin-right: 10px;
 }
 
-.resultatpage > a > .brand > h3
+.resultathead > a > .logo > h3
 {
-	width: 229px;
-	margin: 10px 0;
-	text-align: center;
+	display: inline-block;
+	width: 80px;
 	color: white;
 	text-shadow: 0 0 50px white;
 	font-family: Intro;
 	height: 20px;
 }
 
+.resultathead .option
+{
+	float: right;
+	color: white;
+	font-weight: 300;
+	margin-right: 30px;
+	margin-top: 10px;
+}
+
+.resultathead .option select
+{
+	margin: 0;
+	border: solid white 1px;
+	-webkit-appearance: none;
+	padding: 3px;
+	border-radius: 0;
+	margin-top: 5px;
+	width: 80px;
+	opacity: 0.8;
+}
+
 h1
 {
-	display: inline-block;
 	color: white;
 	margin: 10px;
 	font-size: 80px;
@@ -88,18 +112,6 @@ h1
 	box-shadow: 0px 0px 1px white;
 }
 
-.resultatsearch
-{
-	position: relative;
-	top: 50px;
-	left: 50px;
-}
-
-.resultatsearch > form
-{
-	
-}
-
 form
 {
 	margin: 0;
@@ -114,7 +126,7 @@ form
 	margin: 50px auto;
 	padding: 10px;
 	box-shadow: none;
-	border: solid #754F7E 1px;
+	border: solid white 1px;
 	background: rgba(255,255,255, 0.8);
 }
 
@@ -125,7 +137,7 @@ form
 
 #searchbar:focus
 {
-	box-shadow: 0 0 5px white;
+	background: white;
 }
 
 #result
@@ -143,6 +155,12 @@ form
 	width: 485px;
 	list-style: none;
 	box-shadow: 0 0 1px black;
+}
+
+.resultatsearch
+{
+	margin: auto;
+	width: 500px;
 }
 
 .resultatsearch > #result
@@ -194,6 +212,8 @@ li
 
 .searchsection button, .resultatsearch button
 {
+	position: relative;
+	right: 8px;
 	outline: none;
 	font-size: 14px;
 	height: 50px;
@@ -202,6 +222,8 @@ li
 	background: #754F7E;
 	color: white;
 	border: solid white 1px;
+	border-left: none;
+	border-radius: 0 3px 3px 0;
 }
 
 .searchsection button:hover, .resultatsearch button:hover
@@ -212,16 +234,16 @@ li
 
 .searchsection button:active, .resultatsearch button:active
 {
-	color: #;
 	box-shadow: inset 0 5px 10px #583B5E;
 	background: #754F7E;
 }
 
 .allresult
 {
-	clear: both;
-	margin-left: 50px;
-	margin-top: 50px;
+	margin: auto;
+	margin-top: 150px;
+	width: 1000px;
+	height: 100%;
 }
 
 .allresult > ul
@@ -238,12 +260,19 @@ li
 .allresult > ul > li > h3
 {
 	margin: 0;
-	font-size: 24px;
+	font-size: 20px;
+	font-weight: 400;
 }
 
-.allresult > ul > li > h3:hover
+.allresult > ul > li > h3 > a
 {
-	text-shadow: 0 0 10px black;
+	color: #2854A1;
+	text-decoration: none;
+}
+
+.allresult > ul > li > h3 > a:hover
+{
+	color: #754F7E;
 	-webkit-transition: text-shadow 0.1s;
 	-moz-transition: text-shadow 0.1s;
 	-ms-transition: text-shadow 0.1s;
@@ -251,21 +280,15 @@ li
 	transition: text-shadow 0.1s;
 }
 
-.allresult > ul > li > h3 > a
-{
-	color: white;
-	text-decoration: none;
-}
-
 .allresult > ul > li > .link
 {
-	color: #003768;
+	color: #5A9AB7;
 	font-size: 14px;
 }
 
 .allresult > ul > li > .description
 {
-	color: white;
+	color: black;
 	font-size: 14px;
 	font-weight: 300;
 }
