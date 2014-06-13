@@ -23,7 +23,7 @@
 			</a>
 			<div class="resultatsearch">
 				<form action="resultat.php" method="GET">
-					<input id="searchbar" name="search" type="text" placeholder="Recherche..." autocomplete="off" onkeyup="searchWebsite()" value="<?php echo $_GET["search"] ?>">
+					<input id="searchbar" name="search" type="search" placeholder="Recherche..." autocomplete="off" onkeyup="searchWebsite()" value="<?php echo $_GET["search"] ?>">
 					<button onclick="searchWebsite()">Search</button>
 				</form>
 				<ul id="result">
@@ -32,16 +32,31 @@
 		</div>
 		<div class="allresult">
 			<ul>
-				<li>
-					<h3><a href="#">Lightsearch.com - The Lighting Manufacturer & Product ...</a></h3>
-					<div class="link">www.lightsearch.com</div>
-					<div class="description">Lightsearch.com is one of the largest directories of world-wide lighting manufacturers, products, designers, lamps, bulbs, fixtures, controls, dimmers, luminaires, ...</div>
-				</li>
-				<li>
-					<h3><a href="#">Northern Light Search</a></h3>
-					<div class="link">www.nlsearch.com</div>
-					<div class="description">Northern Light no longer offers NLSearch as a public news search engine, however enterprises may license access to Northern Light Business News. Northern ...</div>
-				</li>
+				<?php
+				require_once 'required.php';
+	
+				$resultController = ControllerFactory::getResultController();
+				$description = $_GET["search"];				
+				$words = explode(" ", $description);
+
+				for($i=0; $i<count($words); $i++){
+					$words[$i] = "*".$words[$i]."*";
+				}
+				$description = implode(" ",$words);
+				$results = $resultController->retrieveResult($description);
+
+				foreach($results as $result) { 
+					echo '
+						<li>
+							<h3><a href="'.$result->getUrl().'">'.$result->getTitle().'</a></h3>
+							<div class="link">'.$result->getUrl().'</div>
+							<div class="description">'.$result->getDescription().'</div>
+						</li>
+
+					';
+				}
+				
+				?>
 			</ul>
 		</div>
 

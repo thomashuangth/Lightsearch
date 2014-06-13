@@ -6,10 +6,9 @@ class PdoResultController extends AbstractPdoController {
 
 	public function retrieveResult($description) {
 		$results = array();
-		$description = '%'.$description.'%';
-		$query = $this->pdo->prepare('SELECT * 
-									FROM websites 
-									WHERE description LIKE :description');
+		//$description = '%'.$description.'%';
+		$query = $this->pdo->prepare('SELECT * FROM  `websites` WHERE MATCH (keywords) AGAINST (:description IN BOOLEAN MODE) 
+																ORDER BY (MATCH (keywords) AGAINST (:description IN BOOLEAN MODE)) DESC');
 		$query->bindValue(':description', $description);
 		$query->execute();
 		

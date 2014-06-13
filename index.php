@@ -16,7 +16,7 @@ require 'required.php';
 		</header>
 		<div class="searchsection">
 			<form action="resultat.php" method="GET">
-				<input id="searchbar" name="search" type="text" placeholder="Recherche..." autocomplete="off" onkeyup="searchWebsite()">
+				<input id="searchbar" name="search" type="search" placeholder="Recherche..." autocomplete="off" onkeyup="searchWebsite()">
 				<button onclick="searchWebsite()">Search</button>
 			</form>
 			<ul id="result">

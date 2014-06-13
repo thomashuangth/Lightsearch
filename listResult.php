@@ -1,5 +1,5 @@
 <?php
-	require_once 'required.php';
+	/*require_once 'required.php';
 	
 	$resultController = ControllerFactory::getResultController();
 	
@@ -44,6 +44,51 @@
 					</div>
 				</div>
 			</a>
+
+		";
+	}*/
+
+	//d
+?>
+
+<?php
+	require_once 'required.php';
+	
+	$resultController = ControllerFactory::getResultController();
+	
+	$description = $_GET["description"];
+	
+	
+	//$results = $resultController->retrieveResult($description);
+	
+	$words = explode(" ", $description);
+	
+	//$results = array();
+	for($i=0; $i<count($words); $i++){
+		$words[$i] = "*".$words[$i]."*";
+	}
+	$description = implode(" ",$words);
+	$results = $resultController->retrieveResult($description);
+	
+	foreach($results as $result) { 
+		echo "
+			<div class='resultat'>
+				
+				<a href='".$result->getUrl()."'><h3>".$result->getTitle()."</h3></a>
+				<h6>".$result->getUrl()."</h6>
+				
+				<hr></hr>
+				
+				<div class='description'>
+					<h5>".$result->getDescription()."</h5>
+				</div>	
+				
+				<div class='keywords'>
+					 
+				</div>
+				
+			</div>
+			
 
 		";
 	}
