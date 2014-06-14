@@ -67,30 +67,35 @@
 	for($i=0; $i<count($words); $i++){
 		$words[$i] = "*".$words[$i]."*";
 	}
-	$description = implode(" ",$words);
-	$results = $resultController->retrieveResult($description);
+	$description1 = implode(" ",$words);
 	
+	$words = explode(" ", $description);
+	
+	//$results = array();
+	for($i=0; $i<count($words); $i++){
+		$words[$i] = "+*".$words[$i]."*";
+	}
+	$title = implode(" ",$words);
+	
+	$results = $resultController->retrieveResult($description1, $title);
+	$show = 0;
 	foreach($results as $result) { 
 		echo "
-			<div class='resultat'>
-				
-				<a href='".$result->getUrl()."'><h3>".$result->getTitle()."</h3></a>
-				<h6>".$result->getUrl()."</h6>
-				
-				<hr></hr>
-				
-				<div class='description'>
-					<h5>".$result->getDescription()."</h5>
-				</div>	
-				
-				<div class='keywords'>
-					 
+			<a href=".$result->getUrl()." onClick='goUrl(\"".$result->getUrl()."\");'>
+				<div class='resultat'>
+					<div class='resulthead'>
+						<h3>".$result->getTitle()."</h3>
+						<h5>".$result->getUrl()."</h5>
+					</div>
+					
+					<div class='description'>
+						<p>".$result->getDescription()."</p>
+					</div>
 				</div>
-				
-			</div>
-			
-
+			</a>
 		";
+		$show++;
+		if ($show == 3) break;
 	}
 
 	//d

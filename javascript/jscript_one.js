@@ -36,9 +36,12 @@ function searchWebsite(){
 	xmlhttp.send();
 }
 
+function goSearch(){
+  var field = document.getElementById("url");
+  field.value = "url";
+}
 
-
-
-
-
-
+function goUrl(url){
+  var field = document.getElementById("url");
+  field.value = url;
+}
