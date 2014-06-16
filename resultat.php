@@ -21,7 +21,7 @@ if($_GET["url"] != "url") header('Location: '.$_GET["url"])
 				<div class="option">
 					Résultats par page :<br>
 					<img src="images/settings.png" alt="option" height="20">
-					<select name="resultatperpage">
+					<select name="resultatperpage" onchange="this.form.submit()">
 						<option value="10">10 par page</option>
 						<option value="20">20 par page</option>
 						<option value="30">30 par page</option>
