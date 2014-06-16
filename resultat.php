@@ -1,5 +1,5 @@
 <?php
-if($_GET["url"] != "url") header('Location: '.$_GET["url"])
+if(isset($_GET["url"]) && $_GET["url"] != "url") header('Location: '.$_GET["url"])
 ?>
 
 <html>
@@ -43,10 +43,10 @@ if($_GET["url"] != "url") header('Location: '.$_GET["url"])
 				require_once 'required.php';
 				$resultatperpage = 0;
 
-				if(!$_GET['resultatperpage']) $resultatperpagechoice = 10;
+				if(empty($_GET['resultatperpage'])) $resultatperpagechoice = 10;
 				else $resultatperpagechoice = $_GET['resultatperpage'];
 
-				if(!$_GET['page']) $page = 0;
+				if(empty($_GET['page'])) $page = 0;
 				else $page = $_GET['page']*$resultatperpagechoice-$resultatperpagechoice;
 
 				$resultController = ControllerFactory::getResultController();
@@ -54,13 +54,13 @@ if($_GET["url"] != "url") header('Location: '.$_GET["url"])
 				$description = $_GET["search"];
 				$words = explode(" ", $description);
 				for($i=0; $i<count($words); $i++){
-					$words[$i] = "*".$words[$i]."*";
+					$words[$i] = $words[$i]."*";
 				}
 
 				$description1 = implode(" ",$words);
 				$words = explode(" ", $description);
 				for($i=0; $i<count($words); $i++){
-					$words[$i] = "+*".$words[$i]."*";
+					$words[$i] = "+".$words[$i]."*";
 				}
 
 				$title = implode(" ",$words);
@@ -92,7 +92,7 @@ if($_GET["url"] != "url") header('Location: '.$_GET["url"])
 			for($i = 1; $i < ceil(sizeof($results)/$resultatperpagechoice)+1; $i++)
 			{
 				echo " ";
-				echo "<a href='resultat.php?page=".$i."&resultatperpage=".$_GET['resultatperpage']."&search=".$_GET['search']."'>$i</a>";
+				echo "<a href='resultat.php?page=".$i."&resultatperpage=".$resultatperpage."&search=".$_GET['search']."'>$i</a>";
 			}
 			?>
 		</div>

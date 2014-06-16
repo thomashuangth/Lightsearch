@@ -65,7 +65,7 @@
 	
 	//$results = array();
 	for($i=0; $i<count($words); $i++){
-		$words[$i] = "*".$words[$i]."*";
+		$words[$i] = $words[$i]."*";
 	}
 	$description1 = implode(" ",$words);
 	
@@ -73,7 +73,7 @@
 	
 	//$results = array();
 	for($i=0; $i<count($words); $i++){
-		$words[$i] = "+*".$words[$i]."*";
+		$words[$i] = "+".$words[$i]."*";
 	}
 	$title = implode(" ",$words);
 	

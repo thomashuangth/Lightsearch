@@ -24,8 +24,9 @@ require 'required.php';
 				</div>
 			</form>
 			<?php 
-			echo shell_exec('/Users/'.exec(whoami).'/Desktop/LightSearch' );
-			echo $_GET["urlcrawl"];
+			if (empty($_GET["urlcrawl"]) == false) {
+				echo shell_exec('./Lightsearch_crawl ' . $_GET["urlcrawl"] . ' -only');
+			}			
 			?>
 		</div>
 		<div class="credit">
