@@ -5,7 +5,7 @@ require 'required.php';
 <html>
 	<head>
 		<title>Crawler</title>
-		<link type="text/css" href="css\style.css" rel="stylesheet"/>
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="javascript/jscript_one.js"></script>
 		<link rel="icon" href="images/favicon.png" type="image/icon">
 	</head>

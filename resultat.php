@@ -5,7 +5,7 @@ if($_GET["url"] != "url") header('Location: '.$_GET["url"])
 <html>
 	<head>
 		<title>Lightsearch</title>
-		<link type="text/css" href="css\style.css" rel="stylesheet"/>
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="javascript/jscript_one.js"></script>
 		<link rel="icon" href="favicon.png" type="image/icon">
 	</head>

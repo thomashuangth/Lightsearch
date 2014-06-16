@@ -1,24 +1,17 @@
 <?php
 
 abstract class AbstractPdoController {
-	
-	const DRIVER = 'mysql';
-	const HOST = 'localhost';
-	const PORT = '3306';
+	const HOST = '127.0.0.1';
 	const DATABASE_NAME = 'lightsearch1_db';
 	const USER = 'root';
 	const PASSWORD = 'root';
 	
-	protected $pdo;
-	
+	protected $link;
 	
 	public function __construct() {
-		$dsn = self::DRIVER.':host='.self::HOST.';port='.self::PORT.';dbname='.self::DATABASE_NAME;
-		
-		$this->pdo = new PDO($dsn, self::USER, self::PASSWORD);
+		$this->link = mysql_connect(self::HOST,self::USER,self::PASSWORD);// or mysql_connect(self::HOST1,self::USER,self::PASSWORD);
+		mysql_select_db(self::DATABASE_NAME, $this->link);
 		
 	}
-
 }
-
 ?>

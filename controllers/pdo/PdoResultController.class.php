@@ -5,28 +5,30 @@ require_once "AbstractPdoController.class.php";
 class PdoResultController extends AbstractPdoController {
 
 	public function retrieveResult($description, $title) {
-		$results = array();
-		//$description = '%'.$description.'%';
-		$query = $this->pdo->prepare('SELECT * FROM  `websites` WHERE MATCH (keywords, title) AGAINST (:description IN BOOLEAN MODE) 
-																ORDER BY (MATCH (keywords) AGAINST (:description IN BOOLEAN MODE))+(MATCH (title) AGAINST (:title IN BOOLEAN MODE))+(MATCH (url) AGAINST (:title IN BOOLEAN MODE)) DESC');
-		$query->bindValue(':description', $description);
-		$query->bindValue(':title', $title);
-		$query->execute();
+		$resultsWeb = array();		
+		$query = sprintf("SELECT * FROM  `websites` WHERE MATCH (keywords, title, url) AGAINST ('%s' IN BOOLEAN MODE) 
+						ORDER BY (MATCH (keywords) AGAINST ('%s' IN BOOLEAN MODE))+(MATCH (title) AGAINST ('%s' IN BOOLEAN MODE))+(MATCH (url) AGAINST ('%s' IN BOOLEAN MODE)) DESC", 
+						mysql_real_escape_string($description), mysql_real_escape_string($description), mysql_real_escape_string($title), mysql_real_escape_string($title));
+
+
+		$results = mysql_query($query);
 		
-		
-		while($result = $query->fetch(PDO::FETCH_OBJ)) {
-			$website = new Result($result->id, $result->title, $result->description, $result->url, $result->keywords);
-			$results[] = $website;
+		if (!$results) {
+			$message  = 'Requête invalide : ' . mysql_error() . "\n";
+			$message .= 'Requête complète : ' . $query;
+			die($message);
 		}
-		$query->closeCursor();
-		return $results;
+		while ($result = mysql_fetch_assoc($results)) {
+			$website = new Result($result['id'], $result['title'], $result['description'], $result['url'], $result['keywords']);
+			$resultsWeb[] = $website;
+		}
+		
+		mysql_free_result($results);
+		
+		
+		mysql_close($this->link);
+		return $resultsWeb;
 	}
-	
-	/*search: super man
-	
-	db: superman*/
-	
-	
 	
 }
 ?>
